@@ -1,6 +1,20 @@
+import { initializeApp } from 'firebase/app'
 import Head from 'next/head'
 import Block from 'components/Block'
+import Boxart from 'components/Boxart'
 import Footer from 'components/Footer'
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyAlwQowKMgebpqvhthgGnegR7VVJs66HrM',
+  authDomain: 'kicktracker-cdf3a.firebaseapp.com',
+  projectId: 'kicktracker-cdf3a',
+  storageBucket: 'kicktracker-cdf3a.appspot.com',
+  messagingSenderId: '865322653805',
+  appId: '1:865322653805:web:2dd2a574596ede91ba4764',
+  measurementId: 'G-RGDV0QJ20N'
+}
+
+const app = initializeApp(firebaseConfig)
 
 export default function Home() {
   return (
@@ -50,6 +64,7 @@ export default function Home() {
             description="Instantly deploy your Next.js site to a public URL with Vercel."
           />
         </div>
+        <Boxart />
       </main>
 
       <Footer />
