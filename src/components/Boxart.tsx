@@ -7,7 +7,7 @@ const Boxart = () => {
   const [boxartUrl, setBoxartUrl] = useState<string>('/images/no-image.jpg')
 
   const storage = getStorage()
-  getDownloadURL(ref(storage, 'kickstarter/ks-1054742299.jpg'))
+  getDownloadURL(ref(storage, 'kickstarter/ks-1300863841.jpg'))
     .then((url) => {
       setBoxartUrl(url)
     })
