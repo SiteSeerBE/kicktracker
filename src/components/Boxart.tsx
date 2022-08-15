@@ -1,13 +1,16 @@
-import { initializeApp } from 'firebase/app'
-import { getStorage, ref, getDownloadURL } from 'firebase/storage'
+import { ref, getDownloadURL } from 'firebase/storage'
 import Image from 'next/image'
 import { useState } from 'react'
+import { storage } from 'utils/firebase'
 
-const Boxart = () => {
+type Props = {
+  localImage: string
+}
+
+const Boxart = (props: Props) => {
   const [boxartUrl, setBoxartUrl] = useState<string>('/images/no-image.jpg')
 
-  const storage = getStorage()
-  getDownloadURL(ref(storage, 'kickstarter/ks-1300863841.jpg'))
+  getDownloadURL(ref(storage, props.localImage))
     .then((url) => {
       setBoxartUrl(url)
     })
