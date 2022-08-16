@@ -1,6 +1,6 @@
-import { ref, getDownloadURL } from 'firebase/storage'
+import { ref } from 'firebase/storage'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useDownloadURL } from 'react-firebase-hooks/storage'
 import { storage } from 'utils/firebase'
 
 type Props = {
@@ -8,19 +8,15 @@ type Props = {
 }
 
 const Boxart = (props: Props) => {
-  const [boxartUrl, setBoxartUrl] = useState<string>('/images/no-image.jpg')
-
-  getDownloadURL(ref(storage, props.localImage))
-    .then((url) => {
-      setBoxartUrl(url)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+  const [downloadUrl, loading, error] = useDownloadURL(
+    ref(storage, props.localImage)
+  )
 
   return (
     <Image
-      src={boxartUrl}
+      src={
+        !error && !loading && downloadUrl ? downloadUrl : '/images/no-image.jpg'
+      }
       alt="Vercel Logo"
       className="ml-2 h-4"
       width={100}
