@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth'
 import { Component, ReactComponentElement } from 'react'
 import { useContext } from 'react'
 import { toast } from 'react-hot-toast'
@@ -6,7 +6,7 @@ import { UserContext } from 'utils/context'
 import { auth } from 'utils/firebase'
 
 export default function Enter() {
-  const user = useContext(UserContext)
+  const { user } = useContext(UserContext)
   return <>{user ? <SignOutButton /> : <SignInButton />}</>
 }
 
@@ -54,5 +54,20 @@ function SignInButton() {
 
 // Sign out button
 function SignOutButton() {
-  return <button onClick={() => auth.signOut()}>Sign Out</button>
+  return (
+    <button
+      onClick={() =>
+        signOut(auth)
+          .then(() =>
+            toast.success('Goodbye, you have successfully logged out!')
+          )
+          .catch((error) => {
+            console.log(error)
+            toast.error('Logout failed!')
+          })
+      }
+    >
+      Sign Out
+    </button>
+  )
 }
