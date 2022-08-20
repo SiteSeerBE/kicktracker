@@ -4,7 +4,7 @@ import { useDownloadURL } from 'react-firebase-hooks/storage'
 import { storage } from 'utils/firebase'
 
 type Props = {
-  localImage: string
+  localImage?: string
 }
 
 const Boxart = (props: Props) => {
@@ -18,9 +18,8 @@ const Boxart = (props: Props) => {
         !error && !loading && downloadUrl ? downloadUrl : '/images/no-image.jpg'
       }
       alt="Vercel Logo"
-      className="ml-2 h-4"
-      width={100}
-      height={100}
+      className="h-full w-full"
+      layout="fill"
     />
   )
 }

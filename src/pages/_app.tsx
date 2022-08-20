@@ -1,4 +1,5 @@
 import 'styles/globals.css'
+import { ThemeProvider } from '@material-tailwind/react'
 import type { AppProps } from 'next/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Toaster } from 'react-hot-toast'
@@ -10,8 +11,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UserContext.Provider value={{ user }}>
-      <Component {...pageProps} />
-      <Toaster />
+      <ThemeProvider>
+        <Component {...pageProps} />
+        <Toaster />
+      </ThemeProvider>
     </UserContext.Provider>
   )
 }

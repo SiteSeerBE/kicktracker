@@ -4,13 +4,13 @@ interface Creator {
 }
 
 interface Dates {
-  end: Date
-  start: Date
+  end: number
+  start: number
 }
 
 interface Game {
   creator: Creator
-  dateAdded: Date
+  dateAdded: import('@firebase/firestore').Timestamp
   dates: Dates
   id: string
   live?: boolean
