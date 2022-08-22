@@ -12,9 +12,11 @@ import {
 } from 'firebase/firestore'
 import Head from 'next/head'
 
-import { useState } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Boxart from 'components/Boxart'
 import GamesList from 'components/GamesList'
+import Layout from 'components/Layout'
 import Loader from 'components/Loader'
 import { firestore, gamesCol } from 'utils/firebase'
 
@@ -27,7 +29,7 @@ function postToJSON(doc: QueryDocumentSnapshot<Game>) {
   }
 }
 
-const LIMIT = 5
+const LIMIT = 12 // maximum games in one call
 
 export async function getServerSideProps() {
   const q = query(gamesCol, orderBy('dates.start', 'desc'), limit(LIMIT))
@@ -65,14 +67,13 @@ export default function Home(props: Props) {
       setGamesEnd(true)
     }
   }
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-400 via-orange-600 to-orange-800 pb-10">
+    <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-700 via-orange-600 to-orange-400">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <Layout>
         <GamesList games={games} />
         {!loading && !gamesEnd && (
           <Button onClick={getMoreGames}>Load more</Button>
@@ -81,7 +82,7 @@ export default function Home(props: Props) {
         <Loader show={loading} />
 
         {gamesEnd && 'You have reached the end!'}
-      </main>
+      </Layout>
     </div>
   )
 }

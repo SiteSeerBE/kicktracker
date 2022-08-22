@@ -8,6 +8,14 @@ module.exports = withMT({
   plugins: [],
   content: ['./src/**/*.tsx'],
   theme: {
-    extend: {}
+    extend: {
+      transitionProperty: {
+        width: 'width'
+      },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+        title: ['"Baloo 2"', 'cursive']
+      }
+    }
   }
 })

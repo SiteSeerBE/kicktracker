@@ -13,13 +13,14 @@ type Props = {
 }
 
 const daysLeft = (epoch: number) => {
-  return Math.floor((epoch * 1000 - Date.now()) / 86400000)
+  const day = 86400000 // miliseconds in a day
+  return Math.floor((epoch * 1000 - Date.now()) / day)
 }
 
 const GameTile = (props: Props) => {
   return (
     <Card className="mt-7 w-96 flex-col">
-      <CardHeader color="light-green" className="relative h-56">
+      <CardHeader color="orange" className="relative h-56">
         <a href={props.game.urls.home} target={`${props.game.platform}`}>
           <Boxart localImage={props.game.urls.localImage} />
         </a>

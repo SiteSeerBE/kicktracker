@@ -8,7 +8,7 @@ type Props = {
 
 const GamesList = (props: Props) => {
   return (
-    <div className="flex flex-wrap gap-4 p-5">
+    <div className="flex flex-wrap justify-center gap-10 p-5">
       {props.games.map((game) => (
         <GameTile game={game} key={game.id} />
       ))}
