@@ -28,7 +28,7 @@ function SignInButton() {
 
   return (
     <button
-      className="dark:focus:ring-[#4285F4]/55 mr-2 mb-2 inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#4285F4]/90 focus:outline-none focus:ring-4 focus:ring-[#4285F4]/50"
+      className="mr-2 mb-2 inline-flex items-center rounded-lg bg-[#4285F4] px-5 py-2.5 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4"
       onClick={signInWithGoogle}
       type="button"
     >

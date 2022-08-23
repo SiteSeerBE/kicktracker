@@ -17,7 +17,7 @@ type Props = {
 const Layout = (props: Props) => {
   return (
     <>
-      <nav className="fixed left-0 top-0 h-screen w-72 flex-col justify-between bg-blue-gray-800 p-4 transition-width">
+      <nav className="fixed left-0 top-0 hidden h-screen w-72 flex-col justify-between bg-blue-gray-800 p-4 transition-width md:block">
         <div className="mt-12 flex flex-col">
           <div className="relative flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -49,7 +49,7 @@ const Layout = (props: Props) => {
           </div>
         </div>
       </nav>
-      <main className="ml-72 flex-1">{props.children}</main>
+      <main className="flex-1 md:ml-72">{props.children}</main>
     </>
   )
 }

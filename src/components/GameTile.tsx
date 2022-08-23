@@ -19,7 +19,7 @@ const daysLeft = (epoch: number) => {
 
 const GameTile = (props: Props) => {
   return (
-    <Card className="mt-7 w-96 flex-col text-blue-gray-500 dark:bg-blue-gray-800 dark:text-blue-gray-200">
+    <Card className="mt-7 w-full flex-col text-blue-gray-500 dark:bg-blue-gray-800 dark:text-blue-gray-200 sm:w-96">
       <CardHeader color="blue-gray" className="relative h-56">
         <a
           href={props.game.urls.home}
