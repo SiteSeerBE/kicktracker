@@ -13,6 +13,7 @@ import GamesList from 'components/GamesList'
 import Layout from 'components/Layout'
 import Loader from 'components/Loader'
 import { gamesCol } from 'utils/firebase'
+import useElementOnScreen from 'utils/useElementOnScreen'
 
 function postToJSON(doc: QueryDocumentSnapshot<Game>) {
   const data = doc.data()
@@ -53,14 +54,26 @@ export default function Home(props: Props) {
       startAfter(cursor),
       limit(LIMIT)
     )
-    const localQuerySnapshot = await getDocs(q)
-    const newGames = localQuerySnapshot.docs.map((doc) => doc.data())
-    setGames((prevGames) => prevGames.concat(newGames))
-    setLoading(false)
-    if (newGames.length < LIMIT) {
-      setGamesEnd(true)
-    }
+    await getDocs(q).then(async (localQuerySnapshot) => {
+      const newGames = localQuerySnapshot.docs.map((doc) => doc.data())
+      setGames(games.concat(newGames))
+      if (newGames.length < LIMIT) {
+        setGamesEnd(true)
+      }
+      setLoading(false)
+    })
   }
+
+  const { containerRef, isVisible } = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  })
+
+  useEffect(() => {
+    if (isVisible) getMoreGames()
+  })
+
   return (
     <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-700 via-orange-600 to-orange-400">
       <Head>
@@ -70,7 +83,9 @@ export default function Home(props: Props) {
       <Layout>
         <GamesList games={games} />
         {!loading && !gamesEnd && (
-          <Button onClick={getMoreGames}>Load more</Button>
+          <Button onClick={getMoreGames} ref={containerRef}>
+            Load more
+          </Button>
         )}
 
         <Loader show={loading} />
