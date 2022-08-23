@@ -17,7 +17,7 @@ const Boxart = (props: Props) => {
       src={
         !error && !loading && downloadUrl ? downloadUrl : '/images/no-image.jpg'
       }
-      alt="Vercel Logo"
+      alt="box image"
       className="h-full w-full"
       layout="fill"
     />

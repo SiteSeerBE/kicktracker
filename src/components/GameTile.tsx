@@ -19,14 +19,21 @@ const daysLeft = (epoch: number) => {
 
 const GameTile = (props: Props) => {
   return (
-    <Card className="mt-7 w-96 flex-col">
-      <CardHeader color="orange" className="relative h-56">
-        <a href={props.game.urls.home} target={`${props.game.platform}`}>
+    <Card className="mt-7 w-96 flex-col text-blue-gray-500 dark:bg-blue-gray-800 dark:text-blue-gray-200">
+      <CardHeader color="blue-gray" className="relative h-56">
+        <a
+          href={props.game.urls.home}
+          target={`${props.game.platform}`}
+          className="dark:opacity-70"
+        >
           <Boxart localImage={props.game.urls.localImage} />
         </a>
       </CardHeader>
       <CardBody className="flex-1 text-center">
-        <Typography variant="h5" className="mb-2">
+        <Typography
+          variant="h5"
+          className="mb-2 text-blue-gray-900 dark:text-white"
+        >
           {props.game.name}
         </Typography>
         <Typography>{props.game.short}</Typography>
@@ -35,11 +42,7 @@ const GameTile = (props: Props) => {
         <Typography variant="small">
           {daysLeft(props.game.dates.end)} days left
         </Typography>
-        <Typography
-          variant="small"
-          color="gray"
-          className="flex gap-1 capitalize"
-        >
+        <Typography variant="small" className="flex gap-1 capitalize">
           {props.game.platform}
         </Typography>
       </CardFooter>

@@ -13,6 +13,7 @@ import GamesList from 'components/GamesList'
 import Layout from 'components/Layout'
 import Loader from 'components/Loader'
 import { gamesCol } from 'utils/firebase'
+import useDarkMode from 'utils/useDarkMode'
 import useElementOnScreen from 'utils/useElementOnScreen'
 
 function postToJSON(doc: QueryDocumentSnapshot<Game>) {
@@ -44,6 +45,7 @@ export default function Home(props: Props) {
   const [games, setGames] = useState<Game[]>(props.games)
   const [loading, setLoading] = useState<boolean>(false)
   const [gamesEnd, setGamesEnd] = useState<boolean>(false)
+  const { mode, setMode } = useDarkMode()
 
   const getMoreGames = async () => {
     setLoading(true)
@@ -75,23 +77,25 @@ export default function Home(props: Props) {
   })
 
   return (
-    <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-700 via-orange-600 to-orange-400">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Layout>
-        <GamesList games={games} />
-        {!loading && !gamesEnd && (
-          <Button onClick={getMoreGames} ref={containerRef}>
-            Load more
-          </Button>
-        )}
+    <div className={mode}>
+      <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-700 via-orange-600 to-orange-400 dark:from-blue-gray-900 dark:via-blue-gray-900 dark:to-blue-gray-900">
+        <Head>
+          <title>Create Next App</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Layout>
+          <GamesList games={games} />
+          {!loading && !gamesEnd && (
+            <Button onClick={getMoreGames} ref={containerRef}>
+              Load more
+            </Button>
+          )}
 
-        <Loader show={loading} />
+          <Loader show={loading} />
 
-        {gamesEnd && 'You have reached the end!'}
-      </Layout>
+          {gamesEnd && 'You have reached the end!'}
+        </Layout>
+      </div>
     </div>
   )
 }

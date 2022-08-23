@@ -7,6 +7,7 @@ module.exports = withMT({
   mode: 'jit',
   plugins: [],
   content: ['./src/**/*.tsx'],
+  darkMode: 'class',
   theme: {
     extend: {
       transitionProperty: {
