@@ -1,24 +1,18 @@
 import { Button } from '@material-tailwind/react'
-import { initializeApp } from 'firebase/app'
 import {
   getDocs,
   limit,
   orderBy,
   query,
   QueryDocumentSnapshot,
-  QuerySnapshot,
-  startAfter,
-  where
+  startAfter
 } from 'firebase/firestore'
 import Head from 'next/head'
-
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Boxart from 'components/Boxart'
 import GamesList from 'components/GamesList'
 import Layout from 'components/Layout'
 import Loader from 'components/Loader'
-import { firestore, gamesCol } from 'utils/firebase'
+import { gamesCol } from 'utils/firebase'
 
 function postToJSON(doc: QueryDocumentSnapshot<Game>) {
   const data = doc.data()
