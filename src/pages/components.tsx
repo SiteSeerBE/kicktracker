@@ -1,8 +1,5 @@
-import { initializeApp } from 'firebase/app'
 import Head from 'next/head'
-
 import toast from 'react-hot-toast'
-import Boxart from 'components/Boxart'
 import Loader from 'components/Loader'
 import Enter from 'components/enter'
 
@@ -29,13 +26,6 @@ export default function Components() {
               Toast Me
             </button>
           </div>
-        </div>
-        <div>
-          <h1 className="heading1">Boxart</h1>
-          <p className="paragraphNormal">
-            Get and display image from Firebase Storage
-          </p>
-          <Boxart localImage="kickstarter/ks-1300863841.jpg" />
         </div>
         <div>
           <h1 className="heading1">Sign in / Sign out</h1>

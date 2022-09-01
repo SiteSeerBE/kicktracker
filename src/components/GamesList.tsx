@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import Boxart from './Boxart'
 import GameTile from './GameTile'
 
 type Props = {

@@ -4,9 +4,9 @@
 @tailwind utilities;
 @layer components {
   .heading1 {
-    @apply mt-0 mb-2 text-6xl font-normal leading-normal text-orange-800;
+    @apply mt-0 mb-2 text-6xl font-normal leading-normal;
   }
   .paragraphNormal {
-    @apply mt-0 mb-4 text-base font-light leading-relaxed text-pink-800;
+    @apply mt-0 mb-4 text-base font-light leading-relaxed;
   }
 }

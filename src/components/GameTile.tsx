@@ -5,8 +5,7 @@ import {
   CardHeader,
   Typography
 } from '@material-tailwind/react'
-import Link from 'next/link'
-import Boxart from './Boxart'
+import Image from 'next/image'
 
 type Props = {
   game: Game
@@ -20,15 +19,17 @@ const daysLeft = (epoch: number) => {
 const GameTile = (props: Props) => {
   return (
     <Card className="mt-7 w-full flex-col text-blue-gray-500 dark:bg-blue-gray-800 dark:text-blue-gray-200 sm:w-96">
-      <CardHeader color="blue-gray" className="relative h-56">
-        <a
-          href={props.game.urls.home}
-          target={`${props.game.platform}`}
-          className="dark:opacity-70"
-        >
-          <Boxart localImage={props.game.urls.localImage} />
-        </a>
-      </CardHeader>
+      <a href={props.game.urls.home} target={`${props.game.platform}`}>
+        <CardHeader color="blue-gray" className="relative h-56 dark:opacity-70">
+          <Image
+            placeholder="empty"
+            src={`https://images.kicktracker.be/high/${props.game.urls.localImage}`}
+            alt="box image"
+            layout="fill"
+          />
+        </CardHeader>
+      </a>
+
       <CardBody className="flex-1 text-center">
         <Typography
           variant="h5"
