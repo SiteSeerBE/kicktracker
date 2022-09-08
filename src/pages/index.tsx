@@ -5,7 +5,8 @@ import {
   orderBy,
   query,
   QueryDocumentSnapshot,
-  startAfter
+  startAfter,
+  where
 } from 'firebase/firestore'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
@@ -26,7 +27,12 @@ function postToJSON(doc: QueryDocumentSnapshot<Game>) {
 const LIMIT = 12 // maximum games in one call
 
 export async function getServerSideProps() {
-  const q = query(gamesCol, orderBy('dates.start', 'desc'), limit(LIMIT))
+  const q = query(
+    gamesCol,
+    where('live', '==', true),
+    orderBy('dates.start', 'desc'),
+    limit(LIMIT)
+  )
   const remoteQuerySnapshot = await getDocs(q)
   const games = remoteQuerySnapshot.docs.map(postToJSON)
 
@@ -49,6 +55,7 @@ export default function Home(props: Props) {
     const cursor = games[games.length - 1].dates.start
     const q = query(
       gamesCol,
+      where('live', '==', true),
       orderBy('dates.start', 'desc'),
       startAfter(cursor),
       limit(LIMIT)
