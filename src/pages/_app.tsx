@@ -1,24 +1,20 @@
 import 'styles/globals.css'
 import { ThemeProvider } from '@material-tailwind/react'
 import type { AppProps } from 'next/app'
-import { useAuthState } from 'react-firebase-hooks/auth'
 import { Toaster } from 'react-hot-toast'
 import Layout from 'components/Layout'
-import { UserContext } from 'utils/context'
-import { auth } from 'utils/firebase'
+import { UserAuthContextProvider } from 'context/UserAuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [user] = useAuthState(auth)
-
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserAuthContextProvider>
       <ThemeProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
         <Toaster />
       </ThemeProvider>
-    </UserContext.Provider>
+    </UserAuthContextProvider>
   )
 }
 

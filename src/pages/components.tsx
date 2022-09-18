@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import toast from 'react-hot-toast'
 import Loader from 'components/Loader'
-import Enter from 'components/enter'
 
 export default function Components() {
   return (
@@ -26,13 +25,6 @@ export default function Components() {
               Toast Me
             </button>
           </div>
-        </div>
-        <div>
-          <h1 className="heading1">Sign in / Sign out</h1>
-          <p className="paragraphNormal">
-            Get the user to Sign in / Sign out with Google
-          </p>
-          <Enter />
         </div>
       </main>
     </div>
