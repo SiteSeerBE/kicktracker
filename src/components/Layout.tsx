@@ -11,8 +11,8 @@ const Layout = (props: PropsWithChildren<any>) => {
   const { mode, setMode } = useDarkMode()
   return (
     <div className={mode}>
-      <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-700 via-orange-600 to-orange-400 dark:from-blue-gray-900 dark:via-blue-gray-900 dark:to-blue-gray-900">
-        <nav className="fixed left-0 top-0 hidden h-screen w-72 bg-blue-gray-800 p-4 pt-16 transition-width md:block">
+      <div className="flex min-h-screen flex-row justify-start bg-gradient-to-r from-orange-400 via-kt-primary to-orange-400 dark:from-blue-gray-900 dark:via-blue-gray-900 dark:to-blue-gray-900">
+        <nav className="fixed left-0 top-0 hidden h-screen w-72 bg-kt-dark p-4 pt-16 transition-width md:block">
           <div className="flex h-full flex-col gap-1">
             <KicktrackerLogo />
             <div className="flex w-full cursor-pointer items-center overflow-hidden whitespace-nowrap rounded p-2 text-white hover:bg-blue-gray-400">

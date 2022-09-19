@@ -8,10 +8,10 @@ export function KicktrackerLogo() {
           <Image
             height={40}
             width={40}
-            src="/images/rocket.svg"
+            src="/images/kicktracker.svg"
             alt="Kicktracker logo"
           />
-          <span className="mt-2 font-title text-2xl text-orange-700">
+          <span className="mt-2 font-title text-2xl text-kt-primary">
             Kicktracker
           </span>
         </div>
