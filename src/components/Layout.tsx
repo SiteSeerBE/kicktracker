@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { CpuFill, HouseFill } from 'react-bootstrap-icons'
+import { CpuFill, HouseFill, LockFill } from 'react-bootstrap-icons'
 import { SignInOutButton } from './auth/sign-in-out-button'
 import { KicktrackerLogo } from './kicktracker-logo'
 import { useUserAuth } from 'context/UserAuthContext'
@@ -26,18 +26,32 @@ const Layout = (props: PropsWithChildren<any>) => {
               </Link>
             </div>
             {isAdmin && (
-              <div className="flex w-full cursor-pointer items-center overflow-hidden whitespace-nowrap rounded p-2 text-white hover:bg-blue-gray-400">
-                <Link href="/components">
-                  <a className="flex h-full w-full items-center">
-                    <div>
-                      <CpuFill size={30} />
-                    </div>
-                    <span className="ml-2 mt-2 text-2xl text-white">
-                      Components
-                    </span>
-                  </a>
-                </Link>
-              </div>
+              <>
+                <div className="flex w-full cursor-pointer items-center overflow-hidden whitespace-nowrap rounded p-2 text-white hover:bg-blue-gray-400">
+                  <Link href="/admin/components">
+                    <a className="flex h-full w-full items-center">
+                      <div>
+                        <CpuFill size={30} />
+                      </div>
+                      <span className="ml-2 mt-2 text-2xl text-white">
+                        Components
+                      </span>
+                    </a>
+                  </Link>
+                </div>
+                <div className="flex w-full cursor-pointer items-center overflow-hidden whitespace-nowrap rounded p-2 text-white hover:bg-blue-gray-400">
+                  <Link href="/admin/tinder">
+                    <a className="flex h-full w-full items-center">
+                      <div>
+                        <LockFill size={30} />
+                      </div>
+                      <span className="ml-2 mt-2 text-2xl text-white">
+                        Tinder
+                      </span>
+                    </a>
+                  </Link>
+                </div>
+              </>
             )}
             <SignInOutButton user={user} />
           </div>
