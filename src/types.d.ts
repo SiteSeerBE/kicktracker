@@ -17,6 +17,7 @@ interface Game {
   name: string
   platform: Platform
   short: Text
+  tags: string[]
   urls: Urls
 }
 

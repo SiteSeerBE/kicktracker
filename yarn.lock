@@ -5533,6 +5533,12 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
+"chokidar2@file:./chokidar2":
+  "resolved" "file:node_modules/@storybook/addon-controls/node_modules/watchpack/chokidar2"
+  "version" "2.0.0"
+  dependencies:
+    "chokidar" "^2.1.8"
+
 "chownr@^1.1.1":
   "integrity" "sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg=="
   "resolved" "https://registry.npmjs.org/chownr/-/chownr-1.1.4.tgz"
@@ -11072,6 +11078,11 @@
   dependencies:
     "aggregate-error" "^3.0.0"
 
+"p-sleep@^1.1.0":
+  "integrity" "sha512-bwP3GKZirBUYMtiUuBrheLUQdRXVeE/pmHOaLpNJzNfAD4b5AjDn6l823brXcQFade4G/g7GMNQ3KV86E8EaEw=="
+  "resolved" "https://registry.npmjs.org/p-sleep/-/p-sleep-1.1.0.tgz"
+  "version" "1.1.0"
+
 "p-timeout@^3.1.0":
   "integrity" "sha512-rhIwUycgwwKcP9yTOOFK/AKsAopjjCakVqLHePO3CC6Mir1Z99xT+R63jZxAT5lFZLa2inS5h+ZS2GvR99/FBg=="
   "resolved" "https://registry.npmjs.org/p-timeout/-/p-timeout-3.2.0.tgz"
@@ -12317,6 +12328,13 @@
     "@babel/runtime" "^7.10.2"
     "use-composed-ref" "^1.0.0"
     "use-latest" "^1.0.0"
+
+"react-tinder-card@^1.5.4":
+  "integrity" "sha512-KRY9c5Wj118pMmkcjPI3KLkZVnUcJBMoq7SFnkAyrVfxMMrBXNJpUEwBfRaL6PbqWdWP+L7YskXvgzRYbE2oaA=="
+  "resolved" "https://registry.npmjs.org/react-tinder-card/-/react-tinder-card-1.5.4.tgz"
+  "version" "1.5.4"
+  dependencies:
+    "p-sleep" "^1.1.0"
 
 "react@*", "react@^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1", "react@^16 || ^17 || ^18", "react@^16.13.1 || ^17.0.0", "react@^16.6.0 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.4 || ^17.0.0", "react@^17.0.2 || ^18.0.0-0", "react@>= 0.14.0", "react@>= 16.3.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || 18.x.x", "react@>=16", "react@>=16.12.0", "react@>=16.3.0", "react@>=16.8", "react@>=16.8 || ^17.0.0 || ^18.0.0", "react@>=16.8.0", "react@>=16.8.6", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
