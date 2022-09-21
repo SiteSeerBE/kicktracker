@@ -1,5 +1,4 @@
 import { User } from 'firebase/auth'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import { BoxArrowInRight, BoxArrowRight } from 'react-bootstrap-icons'

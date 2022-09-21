@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import toast from 'react-hot-toast'
-import FilterButton from 'components/FilterButton'
 import Loader from 'components/Loader'
 
 export default function Components() {
@@ -26,9 +25,6 @@ export default function Components() {
               Toast Me
             </button>
           </div>
-        </div>
-        <div>
-          <FilterButton />
         </div>
       </main>
     </div>
