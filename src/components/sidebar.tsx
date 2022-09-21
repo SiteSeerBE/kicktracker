@@ -17,10 +17,7 @@ const SideBar = () => {
   const router = useRouter()
   const { isAdmin, user } = useUserAuth()
   return (
-    <nav
-      className="fixed top-0 left-0 z-10 flex h-screen w-20 flex-col
-                  bg-white shadow-lg dark:bg-gray-900"
-    >
+    <>
       <SideBarIcon
         active={router.route === '/'}
         icon={<HouseFill size={36} />}
@@ -71,7 +68,7 @@ const SideBar = () => {
         to="/gaming-things"
         tooltip="Other stuff"
       />
-    </nav>
+    </>
   )
 }
 
