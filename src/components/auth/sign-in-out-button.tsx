@@ -24,7 +24,7 @@ export function SignInOutButton(props: Props) {
     return (
       <>
         <SideBarIcon
-          icon={<BoxArrowInRight size={26} />}
+          icon={<BoxArrowInRight size={36} />}
           to="/sign-in"
           tooltip="Sign in"
         />
@@ -33,7 +33,7 @@ export function SignInOutButton(props: Props) {
   }
   return (
     <SideBarIcon
-      icon={<BoxArrowInRight size={26} />}
+      icon={<BoxArrowInRight size={36} />}
       to={handleSignOut}
       tooltip="Sign out"
     />

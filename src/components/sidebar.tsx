@@ -18,12 +18,12 @@ const SideBar = () => {
   const { isAdmin, user } = useUserAuth()
   return (
     <nav
-      className="fixed top-0 left-0 z-10 flex h-screen w-16 flex-col
+      className="fixed top-0 left-0 z-10 flex h-screen w-20 flex-col
                   bg-white shadow-lg dark:bg-gray-900"
     >
       <SideBarIcon
         active={router.route === '/'}
-        icon={<HouseFill size={30} />}
+        icon={<HouseFill size={36} />}
         to="/"
         tooltip="Home"
       />
@@ -33,22 +33,22 @@ const SideBar = () => {
           <Divider />
           <SideBarIcon
             active={router.route === '/admin/components'}
-            icon={<CpuFill size={28} />}
+            icon={<CpuFill size={34} />}
             to="/admin/components"
             tooltip="Components"
           />
           <SideBarIcon
             active={router.route === '/admin/tinder'}
-            icon={<LockFill size={28} />}
+            icon={<LockFill size={34} />}
             to="/admin/tinder"
             tooltip="Tinder"
           />
         </>
       )}
-      <FunnelFill size={36} className="mt-10 self-center fill-primary" />
+      <FunnelFill size={46} className="mt-12 self-center fill-primary" />
       <SideBarIcon
         active={router.route === '/recommended'}
-        icon={<HeartFill size={26} />}
+        icon={<HeartFill size={34} />}
         to="/recommended"
         tooltip="Recommended"
       />
@@ -67,7 +67,7 @@ const SideBar = () => {
       />
       <SideBarIcon
         active={router.route === '/gaming-things'}
-        icon={<BrushFill size={24} />}
+        icon={<BrushFill size={34} />}
         to="/gaming-things"
         tooltip="Other stuff"
       />
