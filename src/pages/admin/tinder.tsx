@@ -14,6 +14,8 @@ import GameTile from 'components/GameTile'
 import { gamesCol } from 'utils/firebase'
 import { getGamesForRating } from 'utils/queries'
 
+type Direction = 'left' | 'right' | 'up' | 'down'
+
 export async function getStaticProps() {
   return {
     props: {
@@ -26,7 +28,7 @@ export default function Tinder() {
   const [loading, setLoading] = useState<boolean>(false)
   const [games, setGames] = useState<Game[]>([])
 
-  const onCardLeftScreen = (gameId: string, direction: string) => {
+  const onCardLeftScreen = (gameId: string, direction: Direction) => {
     console.log(gameId + ' left the screen ' + direction)
     const gameRef = doc(gamesCol, gameId)
     switch (direction) {
@@ -36,10 +38,10 @@ export default function Tinder() {
       case 'right':
         updateDoc(gameRef, { tags: ['bg', 'good'] })
         break
-      case 'top':
+      case 'up':
         updateDoc(gameRef, { tags: ['rpg'] })
         break
-      case 'bottom':
+      case 'down':
         updateDoc(gameRef, { tags: ['other'] })
     }
   }
