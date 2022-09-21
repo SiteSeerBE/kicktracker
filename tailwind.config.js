@@ -10,8 +10,8 @@ module.exports = withMT({
   plugins: [],
   theme: {
     colors: {
-      'kt-primary': '#F57C00',
-      'kt-dark': '#3D4F5D'
+      primary: '#F57C00',
+      secondary: '#3D4F5D'
     },
     extend: {
       transitionProperty: {

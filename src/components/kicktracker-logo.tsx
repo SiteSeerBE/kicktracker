@@ -11,7 +11,7 @@ export function KicktrackerLogo() {
             src="/images/kicktracker.svg"
             alt="Kicktracker logo"
           />
-          <span className="mt-2 font-title text-2xl text-kt-primary">
+          <span className="mt-2 font-title text-2xl text-primary">
             Kicktracker
           </span>
         </div>

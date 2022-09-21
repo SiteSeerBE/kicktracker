@@ -30,6 +30,7 @@ export async function getServerSideProps() {
   const q = query(
     gamesCol,
     where('live', '==', true),
+    where('tags', 'array-contains', 'bg'),
     orderBy('dates.start', 'desc'),
     limit(LIMIT)
   )
@@ -56,6 +57,7 @@ export default function Home(props: Props) {
     const q = query(
       gamesCol,
       where('live', '==', true),
+      where('tags', 'array-contains', 'bg'),
       orderBy('dates.start', 'desc'),
       startAfter(cursor),
       limit(LIMIT)
@@ -83,7 +85,7 @@ export default function Home(props: Props) {
   return (
     <>
       <Head>
-        <title>Kicktracker</title>
+        <title>Board games | Kicktracker</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
