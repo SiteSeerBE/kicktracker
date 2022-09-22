@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
+  .filter-menu {
+    @apply fixed top-0 z-10 flex h-screen w-20 flex-col bg-gray-300 transition-all;
+  }
   .heading1 {
     @apply mt-0 mb-2 text-6xl font-normal leading-normal;
   }

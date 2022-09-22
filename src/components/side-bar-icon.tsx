@@ -1,9 +1,10 @@
 import Link from 'next/link'
+import { MouseEventHandler } from 'react'
 
 type SideBarIconProps = {
   active?: boolean
   icon: any
-  to: string | (() => Promise<void>)
+  to: string | MouseEventHandler<HTMLButtonElement>
   tooltip?: string
 }
 
