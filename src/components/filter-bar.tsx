@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MouseEventHandler } from 'react'
 import { BrushFill, HeartFill } from 'react-bootstrap-icons'
@@ -46,15 +47,16 @@ const FilterBar = (props: Props) => {
   return (
     <>
       {filters.map((filter) => {
-        if (filter.element === 'icon') {
+        if (filter.element === 'icon' && filter.to) {
           return (
-            <SideBarIcon
-              active={router.route === filter.to}
-              icon={filter.icon}
-              onClick={props.switchFilters}
-              to={filter.to}
-              tooltip={filter.tooltip}
-            />
+            <Link href={filter.to} passHref>
+              <SideBarIcon
+                active={router.route === filter.to}
+                icon={filter.icon}
+                onClick={props.switchFilters}
+                tooltip={filter.tooltip}
+              />
+            </Link>
           )
         } else {
           return <hr className="sidebar-hr" />

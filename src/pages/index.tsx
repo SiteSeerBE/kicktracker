@@ -106,7 +106,7 @@ export default function Home(props: Props) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="flex flex-wrap justify-center gap-10 p-5 pb-20">
+      <div className="flex flex-wrap justify-center gap-10 pt-6 pb-20">
         <GamesList games={games} />
         <div className="flex basis-full flex-col">
           {!loading && !gamesEnd && (

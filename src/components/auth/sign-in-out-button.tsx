@@ -7,6 +7,7 @@ import SideBarIcon from 'components/side-bar-icon'
 import { useUserAuth } from 'context/UserAuthContext'
 
 type Props = {
+  menuClosed: boolean
   user: User | null
 }
 
@@ -20,22 +21,26 @@ export function SignInOutButton(props: Props) {
       router.push('/')
     } catch (err) {}
   }
-  if (props.user == null) {
-    return (
-      <>
-        <SideBarIcon
-          icon={<BoxArrowInRight size={36} />}
-          to="/sign-in"
-          tooltip="Sign in"
-        />
-      </>
-    )
-  }
   return (
-    <SideBarIcon
-      icon={<BoxArrowRight size={36} />}
-      to={handleSignOut}
-      tooltip="Sign out"
-    />
+    <>
+      <SideBarIcon
+        icon={
+          props.user ? (
+            <BoxArrowRight size={36} />
+          ) : (
+            <BoxArrowInRight size={36} />
+          )
+        }
+        onClick={props.user ? handleSignOut : () => {}}
+        tooltip={
+          props.menuClosed ? (props.user ? 'Sign out' : 'Sing in') : undefined
+        }
+      />
+      {!props.menuClosed && (
+        <span className="ml-4 grow text-lg">
+          {props.user ? 'Sign out' : 'Sign in'}
+        </span>
+      )}
+    </>
   )
 }

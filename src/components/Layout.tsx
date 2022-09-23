@@ -1,24 +1,52 @@
+import { Button, IconButton } from '@material-tailwind/react'
+import classNames from 'classnames'
 import { PropsWithChildren, useState } from 'react'
+import { ArrowBarLeft, ArrowBarRight } from 'react-bootstrap-icons'
 import FilterBar from './filter-bar'
 import SideBar from './sidebar'
 
 const Layout = (props: PropsWithChildren<any>) => {
   const [filtersVisible, setFiltersVisible] = useState(false)
+  const [menuClosed, setMenuClosed] = useState(false)
   function switchFilters(): void {
     setFiltersVisible(!filtersVisible)
   }
+  function switchMenu(): void {
+    setMenuClosed(!menuClosed)
+  }
+
   return (
     <div className="flex">
       <nav
-        className="fixed top-0 left-0 z-20 flex h-screen w-20 flex-col
-                  bg-white shadow-lg dark:bg-gray-900"
+        className={classNames(
+          'fixed top-0 left-0 z-20 flex h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900',
+          { 'w-20': menuClosed },
+          { 'w-80': !menuClosed }
+        )}
       >
-        <SideBar switchFilters={switchFilters} />
+        <SideBar
+          menuClosed={menuClosed}
+          switchFilters={switchFilters}
+          switchMenu={switchMenu}
+        />
       </nav>
-      <div className={`filter-menu ${filtersVisible ? 'left-20' : 'left-0'}`}>
+      <div
+        className={classNames(
+          'filter-menu',
+          { 'left-20': filtersVisible && menuClosed },
+          { 'left-80': filtersVisible && !menuClosed },
+          { 'left-0': !filtersVisible }
+        )}
+      >
         <FilterBar switchFilters={switchFilters} />
       </div>
-      <main className="ml-16 min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-400">
+      <main
+        className={classNames(
+          'min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-400 transition-width',
+          { 'pl-20': menuClosed },
+          { 'pl-96': !menuClosed }
+        )}
+      >
         {props.children}
       </main>
     </div>
