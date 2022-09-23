@@ -23,7 +23,7 @@ const SideBar = (props: Props) => {
       <SideBarIcon
         active={router.route === '/'}
         icon={<FunnelFill size={36} />}
-        to={props.switchFilters}
+        onClick={props.switchFilters}
         tooltip="Filters"
       />
       <SignInOutButton user={user} />

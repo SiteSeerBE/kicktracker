@@ -16,7 +16,7 @@ const Layout = (props: PropsWithChildren<any>) => {
         <SideBar switchFilters={switchFilters} />
       </nav>
       <div className={`filter-menu ${filtersVisible ? 'left-20' : 'left-0'}`}>
-        <FilterBar />
+        <FilterBar switchFilters={switchFilters} />
       </div>
       <main className="ml-16 min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-400">
         {props.children}
