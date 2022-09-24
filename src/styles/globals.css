@@ -4,7 +4,7 @@
 @tailwind utilities;
 @layer components {
   .filter-menu {
-    @apply fixed top-0 z-10 flex h-screen w-20 flex-col bg-gray-300 transition-all;
+    @apply fixed top-0 z-10 flex h-screen w-20 flex-col bg-gray-50 transition-all dark:bg-gray-800;
   }
   .heading1 {
     @apply mt-0 mb-2 text-6xl font-normal leading-normal;
@@ -14,13 +14,12 @@
   }
   /* fireship.io */
   .sidebar-icon {
-    @apply relative mx-auto mt-2 mb-2 
-    flex h-16 w-16 cursor-pointer items-center  
-  justify-center rounded-3xl bg-secondary 
-  text-primary shadow-lg
+    @apply relative mx-auto mt-2 mb-2 flex 
+    h-16 w-16 cursor-pointer items-center justify-center  
+  rounded-3xl bg-gray-300 text-primary shadow-lg
     transition-all duration-300
     ease-linear hover:rounded-xl hover:bg-primary
-    hover:text-white active:shadow-inner dark:bg-gray-800;
+    hover:text-white active:shadow-inner dark:bg-secondary;
   }
   .sidebar-icon.active {
     @apply rounded-xl bg-primary text-white;
@@ -33,7 +32,7 @@
     @apply fill-white;
   }
   .sidebar-tooltip {
-    @apply absolute left-20 m-2 w-auto min-w-max origin-left scale-0 rounded-md
+    @apply absolute left-20 w-auto min-w-max origin-left scale-0 rounded-md
     bg-secondary p-2 
     text-sm font-bold 
     text-white shadow-md transition-all duration-100;

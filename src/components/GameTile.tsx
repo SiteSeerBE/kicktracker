@@ -18,9 +18,9 @@ const daysLeft = (epoch: number) => {
 
 const GameTile = (props: Props) => {
   return (
-    <Card className="mt-7 w-full flex-col text-blue-gray-500 dark:bg-blue-gray-800 dark:text-blue-gray-200 sm:w-96">
+    <Card className="mt-7 w-full flex-col text-blue-gray-500 dark:bg-secondary dark:text-gray-300 sm:w-96">
       <a href={props.game.urls.home} target={`${props.game.platform}`}>
-        <CardHeader color="blue-gray" className="relative h-56 dark:opacity-70">
+        <CardHeader color="blue-gray" className="relative h-56 dark:opacity-90">
           <Image
             blurDataURL={`https://images.kicktracker.be/low/${props.game.urls.localImage}`}
             placeholder="blur"

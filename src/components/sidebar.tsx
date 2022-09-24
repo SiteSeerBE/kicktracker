@@ -14,9 +14,12 @@ import {
 import { SignInOutButton } from './auth/sign-in-out-button'
 import SideBarIcon from './side-bar-icon'
 import { useUserAuth } from 'context/UserAuthContext'
+import DarthVader from 'svg/darth-vader.svg'
 import Kicktracker from 'svg/kicktracker.svg'
 
 type Props = {
+  darthMode: boolean
+  switchDarthMode: MouseEventHandler<HTMLButtonElement>
   menuClosed: boolean
   switchFilters: MouseEventHandler<HTMLButtonElement>
   switchMenu: MouseEventHandler<HTMLButtonElement>
@@ -26,30 +29,40 @@ const SideBar = (props: Props) => {
   const router = useRouter()
   const { isAdmin, user } = useUserAuth()
   const menuItemClass = classNames(
-    'cursor-pointer my-1 flex h-full w-full items-center',
+    'cursor-pointer my-1 flex h-full w-full items-center whitespace-nowrap',
     {
       'px-3': !props.menuClosed
     }
   )
   return (
     <>
-      <Tooltip
-        placement="right"
-        content={props.menuClosed ? 'Open menu' : 'Close menu'}
-      >
-        <IconButton
-          className={classNames(
-            'self-end',
-            { 'mx-4 my-6': props.menuClosed },
-            { 'm-6': !props.menuClosed }
-          )}
-          color="blue-gray"
-          onClick={props.switchMenu}
-          size="lg"
+      <div className="m-4 flex flex-wrap gap-2 self-end">
+        {!props.menuClosed && (
+          <Tooltip
+            className="bg-secondary"
+            content={props.darthMode ? 'Anakin mode' : 'Darth mode'}
+            placement="bottom"
+          >
+            <IconButton
+              className="self-end text-white"
+              color="blue-gray"
+              onClick={props.switchDarthMode}
+              size="lg"
+            >
+              <DarthVader />
+            </IconButton>
+          </Tooltip>
+        )}
+        <Tooltip
+          className="bg-secondary"
+          content={props.menuClosed ? 'Open menu' : 'Close menu'}
+          placement="bottom"
         >
-          {props.menuClosed ? <ArrowBarRight /> : <ArrowBarLeft />}
-        </IconButton>
-      </Tooltip>
+          <IconButton color="blue-gray" onClick={props.switchMenu} size="lg">
+            {props.menuClosed ? <ArrowBarRight /> : <ArrowBarLeft />}
+          </IconButton>
+        </Tooltip>
+      </div>
       <div className="flex flex-col">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center gap-4 pl-1">
@@ -68,7 +81,7 @@ const SideBar = (props: Props) => {
       </div>
       <div
         className={classNames(
-          'm-4 overflow-hidden whitespace-nowrap text-lg font-extrabold text-blue-gray-800',
+          'm-4 overflow-hidden whitespace-nowrap text-lg font-extrabold text-blue-gray-800 dark:text-gray-50',
           {
             invisible: props.menuClosed
           }
@@ -76,7 +89,7 @@ const SideBar = (props: Props) => {
       >
         Your crowdfunding filter
       </div>
-      <div className="mt-4 flex flex-col">
+      <div className="mt-4 flex flex-col text-gray-900 dark:text-gray-300">
         <Link href="/" passHref>
           <a className={menuItemClass}>
             <SideBarIcon
@@ -131,10 +144,10 @@ const SideBar = (props: Props) => {
         )}
       </div>
       <div className="grow">&nbsp;</div>
-      <div className="border-t-2">
+      <div className="border-t-2 text-gray-900 dark:text-gray-300">
         <Link href="/sign-in" passHref>
           <a className={menuItemClass}>
-            <SignInOutButton user={user} menuClosed={props.menuClosed} />
+            <SignInOutButton menuClosed={props.menuClosed} user={user} />
           </a>
         </Link>
       </div>

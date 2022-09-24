@@ -12,7 +12,7 @@ export default function SignUp() {
       </Head>
       <main className="flex h-full flex-col items-center justify-center gap-3">
         <SignUpCard />
-        <Card className="w-96">
+        <Card className="w-96 dark:bg-secondary dark:text-gray-300">
           <CardBody>
             <Typography variant="small" className="flex justify-center">
               Already have an account?

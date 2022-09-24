@@ -57,7 +57,7 @@ export default function SignInCard() {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="w-96">
+      <Card className="w-96 dark:bg-secondary">
         <CardHeader
           variant="gradient"
           color="blue-gray"
@@ -67,7 +67,7 @@ export default function SignInCard() {
             Sign in
           </Typography>
         </CardHeader>
-        <CardBody className="flex flex-col gap-4">
+        <CardBody className="flex flex-col gap-4 dark:text-gray-300">
           <Typography>
             Thank you for your interest, sign-in works but features for users
             are still under construction, there&apos;s not much you can do after
@@ -79,6 +79,7 @@ export default function SignInCard() {
             </Alert>
           )}
           <Input
+            className="dark:text-gray-300"
             color="orange"
             icon={<Envelope />}
             label="Email"
@@ -86,6 +87,7 @@ export default function SignInCard() {
             onChange={handleEmailChange}
           />
           <Input
+            className="dark:text-gray-300"
             color="orange"
             icon={<Lock />}
             label="Password"
@@ -93,9 +95,6 @@ export default function SignInCard() {
             size="lg"
             type="password"
           />
-          <div className="-ml-2.5">
-            <Checkbox label="Remember Me" />
-          </div>
         </CardBody>
         <CardFooter className="pt-0">
           <Button variant="gradient" color="orange" type="submit" fullWidth>

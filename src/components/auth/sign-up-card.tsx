@@ -45,7 +45,7 @@ export default function SignUpCard() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card className="w-96">
+      <Card className="w-96 dark:bg-secondary">
         <CardHeader
           variant="gradient"
           color="blue-gray"
@@ -55,7 +55,7 @@ export default function SignUpCard() {
             Sign up
           </Typography>
         </CardHeader>
-        <CardBody className="flex flex-col gap-4">
+        <CardBody className="flex flex-col gap-4 dark:text-gray-300">
           <Typography>
             Thank you for your interest, sign-up works but features for users
             are still under construction, there&apos;s not much you can do after
@@ -67,6 +67,7 @@ export default function SignUpCard() {
             </Alert>
           )}
           <Input
+            className="dark:text-gray-300"
             color="orange"
             icon={<Envelope />}
             label="Email"
@@ -74,6 +75,7 @@ export default function SignUpCard() {
             size="lg"
           />
           <Input
+            className="dark:text-gray-300"
             color="orange"
             icon={<Lock />}
             label="Password"

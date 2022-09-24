@@ -8,15 +8,19 @@ import SideBar from './sidebar'
 const Layout = (props: PropsWithChildren<any>) => {
   const [filtersVisible, setFiltersVisible] = useState(false)
   const [menuClosed, setMenuClosed] = useState(false)
+  const [darthMode, setDarthMode] = useState(false)
   function switchFilters(): void {
     setFiltersVisible(!filtersVisible)
   }
   function switchMenu(): void {
     setMenuClosed(!menuClosed)
   }
+  function switchDarthMode(): void {
+    setDarthMode(!darthMode)
+  }
 
   return (
-    <div className="flex">
+    <div className={classNames('flex', { dark: darthMode })}>
       <nav
         className={classNames(
           'fixed top-0 left-0 z-20 flex h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900',
@@ -25,6 +29,8 @@ const Layout = (props: PropsWithChildren<any>) => {
         )}
       >
         <SideBar
+          darthMode={darthMode}
+          switchDarthMode={switchDarthMode}
           menuClosed={menuClosed}
           switchFilters={switchFilters}
           switchMenu={switchMenu}
@@ -42,7 +48,7 @@ const Layout = (props: PropsWithChildren<any>) => {
       </div>
       <main
         className={classNames(
-          'min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-400 transition-width',
+          'min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-600 transition-width dark:from-gray-800 dark:via-gray-900 dark:to-gray-900',
           { 'pl-20': menuClosed },
           { 'pl-96': !menuClosed }
         )}

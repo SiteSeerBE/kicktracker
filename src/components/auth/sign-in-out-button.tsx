@@ -24,6 +24,7 @@ export function SignInOutButton(props: Props) {
   return (
     <>
       <SideBarIcon
+        active={['/sign-in', '/sing-up'].includes(router.route)}
         icon={
           props.user ? (
             <BoxArrowRight size={36} />
