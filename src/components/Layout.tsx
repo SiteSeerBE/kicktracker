@@ -23,7 +23,7 @@ const Layout = (props: PropsWithChildren<any>) => {
     <div className={classNames('flex', { dark: darthMode })}>
       <nav
         className={classNames(
-          'fixed top-0 left-0 z-20 flex h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900',
+          'fixed left-0 z-20 flex h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900 md:top-0',
           { 'w-20': menuClosed },
           { 'w-80': !menuClosed }
         )}

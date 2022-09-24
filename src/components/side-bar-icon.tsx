@@ -1,12 +1,10 @@
 import classNames from 'classnames'
-import Link from 'next/link'
 import { MouseEventHandler } from 'react'
 
 type SideBarIconProps = {
   icon: any
   active?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
-  to?: string
   tooltip?: string
 }
 

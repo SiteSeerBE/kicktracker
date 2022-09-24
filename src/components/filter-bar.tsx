@@ -49,17 +49,21 @@ const FilterBar = (props: Props) => {
       {filters.map((filter) => {
         if (filter.element === 'icon' && filter.to) {
           return (
-            <Link href={filter.to} passHref>
-              <SideBarIcon
-                active={router.route === filter.to}
-                icon={filter.icon}
-                onClick={props.switchFilters}
-                tooltip={filter.tooltip}
-              />
-            </Link>
+            <div key={filter.id}>
+              <Link href={filter.to} passHref>
+                <a>
+                  <SideBarIcon
+                    active={router.route === filter.to}
+                    icon={filter.icon}
+                    onClick={props.switchFilters}
+                    tooltip={filter.tooltip}
+                  />
+                </a>
+              </Link>
+            </div>
           )
         } else {
-          return <hr className="sidebar-hr" />
+          return <hr className="sidebar-hr" key={filter.id} />
         }
       })}
     </>
