@@ -38,7 +38,7 @@ export function SignInOutButton(props: Props) {
         }
       />
       {!props.menuClosed && (
-        <span className="ml-4 grow text-lg">
+        <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
           {props.user ? 'Sign out' : 'Sign in'}
         </span>
       )}

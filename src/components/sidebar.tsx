@@ -19,17 +19,17 @@ import Kicktracker from 'svg/kicktracker.svg'
 
 type Props = {
   darthMode: boolean
-  switchDarthMode: MouseEventHandler<HTMLButtonElement>
+  switchDarthMode: MouseEventHandler<HTMLElement>
   menuClosed: boolean
-  switchFilters: MouseEventHandler<HTMLButtonElement>
-  switchMenu: MouseEventHandler<HTMLButtonElement>
+  switchFilters: MouseEventHandler<HTMLElement>
+  switchMenu: MouseEventHandler<HTMLElement>
 }
 
 const SideBar = (props: Props) => {
   const router = useRouter()
   const { isAdmin, user } = useUserAuth()
   const menuItemClass = classNames(
-    'cursor-pointer my-1 flex h-full w-full items-center whitespace-nowrap',
+    'menu-item cursor-pointer my-1 flex h-full w-full items-center whitespace-nowrap group',
     {
       'px-3': !props.menuClosed
     }
@@ -98,19 +98,22 @@ const SideBar = (props: Props) => {
               tooltip={props.menuClosed ? 'Home' : undefined}
             />
             {!props.menuClosed && (
-              <span className="ml-4 grow text-lg">Home</span>
+              <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
+                Home
+              </span>
             )}
           </a>
         </Link>
-        <a className={menuItemClass}>
+        <a className={menuItemClass} onClick={props.switchFilters}>
           <SideBarIcon
             active={router.route.includes('/filter')}
             icon={<FunnelFill size={36} />}
-            onClick={props.switchFilters}
             tooltip={props.menuClosed ? 'Filters' : undefined}
           />
           {!props.menuClosed && (
-            <span className="ml-4 grow text-lg">Filters</span>
+            <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
+              Filters
+            </span>
           )}
         </a>
         {isAdmin && (
@@ -124,7 +127,9 @@ const SideBar = (props: Props) => {
                   tooltip={props.menuClosed ? 'Components' : undefined}
                 />
                 {!props.menuClosed && (
-                  <span className="ml-4 grow text-lg">Components</span>
+                  <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
+                    Components
+                  </span>
                 )}
               </a>
             </Link>
@@ -136,7 +141,9 @@ const SideBar = (props: Props) => {
                   tooltip={props.menuClosed ? 'Tinder' : undefined}
                 />
                 {!props.menuClosed && (
-                  <span className="ml-4 grow text-lg">Tinder</span>
+                  <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
+                    Tinder
+                  </span>
                 )}
               </a>
             </Link>

@@ -18,16 +18,16 @@
     h-16 w-16 cursor-pointer items-center justify-center  
   rounded-3xl bg-gray-300 text-primary shadow-lg
     transition-all duration-300
-    ease-linear hover:rounded-xl hover:bg-primary
-    hover:text-white active:shadow-inner dark:bg-secondary;
+    ease-linear active:shadow-inner group-hover:rounded-xl
+    group-hover:bg-primary group-hover:text-white dark:bg-secondary;
   }
   .sidebar-icon.active {
     @apply rounded-xl bg-primary text-white;
   }
   .sidebar-icon svg path {
-    @apply fill-primary;
+    @apply fill-primary transition-all;
   }
-  .sidebar-icon:hover svg path,
+  .menu-item:hover .sidebar-icon svg path,
   .sidebar-icon.active svg path {
     @apply fill-white;
   }
