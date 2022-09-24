@@ -3,6 +3,8 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
+  Chip,
+  Tooltip,
   Typography
 } from '@material-tailwind/react'
 import Image from 'next/image'
@@ -38,15 +40,35 @@ const GameTile = (props: Props) => {
         >
           {props.game.name}
         </Typography>
+        {props.game.tags && props.game.tags.includes('good') && (
+          <Tooltip content="recommended" placement="left">
+            <Chip className="m-1" color="blue-gray" value="&hearts;" />
+          </Tooltip>
+        )}
+        {props.game.tags && props.game.tags.includes('bg') && (
+          <Chip className="m-1" color="orange" value="board game" />
+        )}
+        {props.game.tags && props.game.tags.includes('rpg') && (
+          <Chip className="m-1" color="green" value="role-playing game" />
+        )}
+        {props.game.tags && props.game.tags.includes('other') && (
+          <Chip className="m-1" color="blue" value="accessory" />
+        )}
+
         <Typography>{props.game.short}</Typography>
       </CardBody>
       <CardFooter divider className="flex items-center justify-between py-3">
         <Typography variant="small">
           {daysLeft(props.game.dates.end)} days left
         </Typography>
-        <Typography variant="small" className="flex gap-1 capitalize">
-          {props.game.platform}
-        </Typography>
+        <a href={props.game.urls.home} target={`${props.game.platform}`}>
+          <Typography
+            variant="small"
+            className="flex gap-1 capitalize text-primary"
+          >
+            {props.game.platform}
+          </Typography>
+        </a>
       </CardFooter>
     </Card>
   )
