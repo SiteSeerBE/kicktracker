@@ -42,14 +42,14 @@ const GameTile = (props: Props) => {
         </Typography>
         {props.game.tags && props.game.tags.includes('good') && (
           <Tooltip content="recommended" placement="left">
-            <Chip className="m-1" color="blue-gray" value="&hearts;" />
+            <Chip className="m-1" color="orange" value="&hearts;" />
           </Tooltip>
         )}
         {props.game.tags && props.game.tags.includes('bg') && (
-          <Chip className="m-1" color="orange" value="board game" />
+          <Chip className="m-1" color="green" value="board game" />
         )}
         {props.game.tags && props.game.tags.includes('rpg') && (
-          <Chip className="m-1" color="green" value="role-playing game" />
+          <Chip className="m-1" color="cyan" value="role-playing game" />
         )}
         {props.game.tags && props.game.tags.includes('other') && (
           <Chip className="m-1" color="blue" value="accessory" />

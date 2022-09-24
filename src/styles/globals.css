@@ -4,7 +4,7 @@
 @tailwind utilities;
 @layer components {
   .filter-menu {
-    @apply fixed top-0 z-10 flex h-screen w-20 flex-col bg-gray-50 transition-all dark:bg-gray-800;
+    @apply fixed bottom-0 z-10 flex w-screen items-center justify-center gap-5 bg-gray-50 transition-all dark:bg-gray-800 md:top-0 md:h-screen md:w-20 md:flex-col md:justify-start md:gap-1;
   }
   .heading1 {
     @apply mt-0 mb-2 text-6xl font-normal leading-normal;
@@ -32,15 +32,15 @@
     @apply fill-white;
   }
   .sidebar-tooltip {
-    @apply absolute left-20 w-auto min-w-max origin-left scale-0 rounded-md
-    bg-secondary p-2 
-    text-sm font-bold 
-    text-white shadow-md transition-all duration-100;
+    @apply absolute bottom-20 w-auto min-w-max origin-bottom scale-0 rounded-md bg-secondary p-2 text-sm
+    font-bold text-white 
+    shadow-md transition-all 
+    duration-100 md:top-0 md:left-20 md:bottom-6 md:origin-left;
   }
 
   .sidebar-hr {
-    @apply mx-2 rounded-full 
-    border border-gray-200 bg-gray-200 dark:border-gray-800
-    dark:bg-gray-800;
+    @apply mx-2 hidden w-full rounded-full border 
+    border-gray-200 bg-gray-200 dark:border-gray-800 dark:bg-gray-800
+    md:block;
   }
 }

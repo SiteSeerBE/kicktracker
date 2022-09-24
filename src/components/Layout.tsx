@@ -21,7 +21,7 @@ const Layout = (props: PropsWithChildren<any>) => {
     <div className={classNames('flex', { dark: darthMode })}>
       <nav
         className={classNames(
-          'fixed left-0 top-0 z-20 flex h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900',
+          'fixed left-0 top-0 z-20 hidden h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900  md:flex',
           { 'w-20': menuClosed },
           { 'w-80': !menuClosed }
         )}
@@ -37,9 +37,9 @@ const Layout = (props: PropsWithChildren<any>) => {
       <div
         className={classNames(
           'filter-menu',
-          { 'left-20': filtersVisible && menuClosed },
-          { 'left-80': filtersVisible && !menuClosed },
-          { 'left-0': !filtersVisible }
+          { 'md:left-20': filtersVisible && menuClosed },
+          { 'md:left-80': filtersVisible && !menuClosed },
+          { 'md:left-0': !filtersVisible }
         )}
       >
         <FilterBar switchFilters={switchFilters} />
@@ -47,8 +47,8 @@ const Layout = (props: PropsWithChildren<any>) => {
       <main
         className={classNames(
           'min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-600 transition-width dark:from-gray-800 dark:via-gray-900 dark:to-gray-900',
-          { 'pl-20': menuClosed },
-          { 'pl-96': !menuClosed }
+          { 'md:pl-20': menuClosed },
+          { 'md:pl-96': !menuClosed }
         )}
       >
         {props.children}
