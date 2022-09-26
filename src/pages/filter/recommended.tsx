@@ -9,9 +9,9 @@ import {
   where
 } from 'firebase/firestore'
 import { NextApiResponse } from 'next'
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import GamesList from 'components/GamesList'
+import Header from 'components/Header'
 import Loader from 'components/Loader'
 import { gamesCol } from 'utils/firebase'
 import useElementOnScreen from 'utils/useElementOnScreen'
@@ -88,31 +88,8 @@ export default function Recommended(props: GamePageProps) {
 
   return (
     <>
-      <Head>
-        <title>Recommended | Kicktracker</title>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
-      <div className="flex flex-wrap justify-center gap-10 pt-5 pb-24">
+      <Header title="Recommended games" />
+      <div className="flex flex-wrap justify-center gap-5 pt-5 pb-24">
         <GamesList games={games} />
         <div className="flex basis-full flex-col">
           {!loading && !gamesEnd && (

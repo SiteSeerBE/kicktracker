@@ -1,14 +1,11 @@
-import Head from 'next/head'
 import toast from 'react-hot-toast'
+import Header from 'components/Header'
 import Loader from 'components/Loader'
 
 export default function Components() {
   return (
     <div className="ml-5">
-      <Head>
-        <title>Demo page for all components</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header title="Components" />
       <main>
         <div>
           <h1 className="heading1">Loader</h1>

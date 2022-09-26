@@ -1,16 +1,8 @@
-import {
-  doc,
-  getDocs,
-  orderBy,
-  query,
-  setDoc,
-  updateDoc,
-  where
-} from 'firebase/firestore'
-import Head from 'next/head'
+import { doc, updateDoc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 import GameTile from 'components/GameTile'
+import Header from 'components/Header'
 import { gamesCol } from 'utils/firebase'
 import { getGamesForRating } from 'utils/queries'
 
@@ -25,7 +17,6 @@ export async function getStaticProps() {
 }
 
 export default function Tinder() {
-  const [loading, setLoading] = useState<boolean>(false)
   const [games, setGames] = useState<Game[]>([])
 
   const onCardLeftScreen = (gameId: string, direction: Direction) => {
@@ -54,10 +45,7 @@ export default function Tinder() {
   }, [])
   return (
     <div className="overflow-hidden">
-      <Head>
-        <title>Tinder | Kicktracker</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header title="Tinder" />
       {games.map((game) => (
         <TinderCard
           className="absolute m-auto"
