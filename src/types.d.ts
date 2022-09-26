@@ -35,3 +35,7 @@ interface Setting {
     numberOfGames: import('@google-cloud/firestore').FieldValue
   }
 }
+
+interface GamePageProps {
+  games: Game[]
+}

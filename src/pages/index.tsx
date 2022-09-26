@@ -8,6 +8,7 @@ import {
   startAfter,
   where
 } from 'firebase/firestore'
+import { NextApiResponse } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import GamesList from 'components/GamesList'
@@ -26,7 +27,15 @@ function postToJSON(doc: QueryDocumentSnapshot<Game>) {
 
 const LIMIT = 12 // maximum games in one call
 
-export async function getServerSideProps() {
+type Props = {
+  res: NextApiResponse
+}
+
+export async function getServerSideProps({ res }: Props) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=900, stale-while-revalidate=900'
+  )
   const q = query(
     gamesCol,
     where('live', '==', true),
@@ -41,11 +50,7 @@ export async function getServerSideProps() {
   }
 }
 
-type Props = {
-  games: Game[]
-}
-
-export default function Home(props: Props) {
+export default function Home(props: GamePageProps) {
   const [games, setGames] = useState<Game[]>(props.games)
   const [loading, setLoading] = useState<boolean>(false)
   const [gamesEnd, setGamesEnd] = useState<boolean>(false)
@@ -106,7 +111,7 @@ export default function Home(props: Props) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className="flex flex-wrap justify-center gap-10 pt-6 pb-24">
+      <div className="flex flex-wrap justify-center gap-5 pt-6 pb-24">
         <GamesList games={games} />
         <div className="flex basis-full flex-col">
           {!loading && !gamesEnd && (

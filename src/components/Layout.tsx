@@ -48,7 +48,7 @@ const Layout = (props: PropsWithChildren<any>) => {
         className={classNames(
           'min-h-screen flex-1 bg-gradient-to-r from-orange-400 via-primary to-orange-600 transition-width dark:from-gray-800 dark:via-gray-900 dark:to-gray-900',
           { 'md:pl-20': menuClosed },
-          { 'md:pl-96': !menuClosed }
+          { 'md:pl-80': !menuClosed }
         )}
       >
         {props.children}

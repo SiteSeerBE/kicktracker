@@ -8,6 +8,7 @@ import {
   startAfter,
   where
 } from 'firebase/firestore'
+import { NextApiResponse } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import GamesList from 'components/GamesList'
@@ -19,14 +20,21 @@ function postToJSON(doc: QueryDocumentSnapshot<Game>) {
   const data = doc.data()
   return {
     ...data,
-    // Gotcha! firestore timestamp NOT serializable to JSON. Must convert to milliseconds
     dateAdded: data?.dateAdded.toMillis() || 0
   }
 }
 
-const LIMIT = 12 // maximum games in one call
+const LIMIT = 12
 
-export async function getServerSideProps() {
+type Props = {
+  res: NextApiResponse
+}
+
+export async function getServerSideProps({ res }: Props) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=900, stale-while-revalidate=900'
+  )
   const q = query(
     gamesCol,
     where('live', '==', true),
@@ -42,11 +50,7 @@ export async function getServerSideProps() {
   }
 }
 
-type Props = {
-  games: Game[]
-}
-
-export default function Home(props: Props) {
+export default function GamingAccessories(props: GamePageProps) {
   const [games, setGames] = useState<Game[]>(props.games)
   const [loading, setLoading] = useState<boolean>(false)
   const [gamesEnd, setGamesEnd] = useState<boolean>(false)
