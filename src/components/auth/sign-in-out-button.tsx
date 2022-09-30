@@ -25,6 +25,7 @@ export function SignInOutButton(props: Props) {
     <>
       <SideBarIcon
         active={['/sign-in', '/sing-up'].includes(router.route)}
+        hideTooltip={!props.menuClosed}
         icon={
           props.user ? (
             <BoxArrowRight size={36} />
@@ -33,12 +34,10 @@ export function SignInOutButton(props: Props) {
           )
         }
         onClick={props.user ? handleSignOut : () => {}}
-        tooltip={
-          props.menuClosed ? (props.user ? 'Sign out' : 'Sing in') : undefined
-        }
+        tooltip={props.user ? 'Sign out' : 'Sing in'}
       />
       {!props.menuClosed && (
-        <span className="ml-4 grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100">
+        <span className="menu-label">
           {props.user ? 'Sign out' : 'Sign in'}
         </span>
       )}
