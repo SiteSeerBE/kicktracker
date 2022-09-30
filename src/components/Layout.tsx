@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { PropsWithChildren, useState } from 'react'
 import FilterBar from './filter-bar'
+import LogoHeader from './logo-header'
 import SideBar from './sidebar'
 
 const Layout = (props: PropsWithChildren<any>) => {
@@ -19,19 +20,23 @@ const Layout = (props: PropsWithChildren<any>) => {
 
   return (
     <div className={classNames('flex', { dark: darthMode })}>
+      <LogoHeader
+        darthMode={darthMode}
+        menuClosed={menuClosed}
+        switchDarthMode={switchDarthMode}
+        switchMenu={switchMenu}
+      />
       <nav
         className={classNames(
-          'fixed left-0 top-0 z-20 hidden h-screen flex-col bg-white shadow-lg transition-width dark:bg-gray-900  md:flex',
+          'fixed  left-0 top-0 z-20 hidden h-screen flex-col bg-white pt-44 shadow-lg transition-width dark:bg-gray-900  md:flex',
           { 'w-20': menuClosed },
           { 'w-80': !menuClosed }
         )}
       >
         <SideBar
           darthMode={darthMode}
-          switchDarthMode={switchDarthMode}
           menuClosed={menuClosed}
           switchFilters={switchFilters}
-          switchMenu={switchMenu}
         />
       </nav>
       <div
