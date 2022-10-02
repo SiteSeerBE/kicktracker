@@ -33,7 +33,7 @@ export default function LogoHeader(props: Props) {
   return (
     <div
       className={classNames(
-        'fixed z-30 flex w-screen items-center justify-between overflow-hidden transition-all dark:bg-gray-900 md:flex-col md:items-start',
+        'fixed z-30 flex w-screen items-center justify-between overflow-hidden bg-white pr-4 transition-all dark:bg-gray-900 md:flex-col md:items-start md:pr-0',
         { 'md:w-20': props.menuClosed },
         { 'md:w-80': !props.menuClosed },
         { 'h-20 md:h-52': visible },
@@ -88,7 +88,7 @@ export default function LogoHeader(props: Props) {
       </div>
       <div
         className={classNames(
-          'order-2 m-4 overflow-hidden whitespace-nowrap text-lg font-extrabold text-blue-gray-800 dark:text-gray-50 md:order-3',
+          'order-2 m-4 hidden overflow-hidden whitespace-nowrap text-lg font-extrabold text-blue-gray-800 dark:text-gray-50 md:order-3 md:block',
           {
             invisible: props.menuClosed
           }

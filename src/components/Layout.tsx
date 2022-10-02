@@ -39,7 +39,7 @@ const Layout = (props: PropsWithChildren<any>) => {
         className={classNames(
           'filter-menu',
           { 'bottom-0 md:left-20': filtersVisible && menuClosed },
-          { 'bottom-20 md:bottom-0 md:left-80': filtersVisible && !menuClosed },
+          { 'bottom-16 md:bottom-0 md:left-80': filtersVisible && !menuClosed },
           { 'bottom-0 md:left-0': !filtersVisible }
         )}
       >

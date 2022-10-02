@@ -77,7 +77,7 @@ const SideBar = (props: Props) => {
         )}
       </div>
       <div className="hidden md:block md:grow">&nbsp;</div>
-      <div className="border-t-2 text-gray-900 dark:text-gray-300 md:w-full">
+      <div className="text-gray-900 dark:text-gray-300 md:w-full md:border-t-2">
         <Link href="/sign-in" passHref>
           <a className={menuItemClass}>
             <SignInOutButton menuClosed={props.menuClosed} user={user} />
