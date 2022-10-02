@@ -17,9 +17,12 @@ const SideBarIcon = (props: SideBarIconProps) => {
     >
       {props.icon}
       <span
-        className={classNames('sidebar-tooltip group-hover:scale-100', {
-          'md:hidden': props.hideTooltip
-        })}
+        className={classNames(
+          'sidebar-tooltip delay transition-opacity delay-[1500ms] group-hover:scale-100 group-hover:opacity-0',
+          {
+            'md:hidden': props.hideTooltip
+          }
+        )}
       >
         {props.tooltip}
       </span>

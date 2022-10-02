@@ -14,12 +14,7 @@
   }
   /* fireship.io */
   .sidebar-icon {
-    @apply relative mx-auto mt-2 mb-2 flex 
-    h-14 w-14 cursor-pointer items-center justify-center rounded-3xl bg-gray-300  
-  text-primary shadow-lg transition-all duration-300
-    ease-linear active:shadow-inner
-    group-hover:rounded-xl group-hover:bg-primary group-hover:text-white
-    dark:bg-secondary md:h-16 md:w-16;
+    @apply relative mx-auto mt-2 mb-2 flex h-14 w-14 cursor-pointer items-center justify-center rounded-3xl bg-gray-300 text-primary shadow-lg transition-all duration-300 ease-linear hover:rounded-xl hover:bg-primary active:shadow-inner group-hover:rounded-xl group-hover:bg-primary group-hover:text-white dark:bg-secondary dark:hover:bg-primary md:h-16 md:w-16;
   }
   .sidebar-icon.active {
     @apply rounded-xl bg-primary text-white;
@@ -28,22 +23,18 @@
     @apply fill-primary transition-all;
   }
   .menu-item:hover .sidebar-icon svg path,
-  .sidebar-icon.active svg path {
+  .sidebar-icon.active svg path,
+  .sidebar-icon:hover svg path {
     @apply fill-white;
   }
   .menu-label {
     @apply ml-4 hidden grow rounded-lg bg-gray-300/0 p-4 text-lg transition-colors group-hover:bg-gray-300/100 dark:bg-secondary/0 dark:group-hover:bg-secondary/100 md:block;
   }
   .sidebar-tooltip {
-    @apply absolute bottom-20 w-auto min-w-max origin-bottom scale-0 rounded-md bg-secondary p-2 text-sm
-    font-bold text-white 
-    shadow-md transition-all 
-    duration-100 md:top-0 md:left-20 md:bottom-6 md:origin-left;
+    @apply absolute bottom-20 w-auto min-w-max origin-bottom scale-0 rounded-md bg-secondary p-2 text-sm font-bold text-white shadow-md duration-100 md:top-0 md:left-20 md:bottom-6 md:origin-left;
   }
 
   .sidebar-hr {
-    @apply hidden w-full rounded-full border 
-    border-gray-200 bg-gray-200 dark:border-gray-800 dark:bg-gray-800
-    md:block;
+    @apply hidden w-full rounded-full border border-gray-200 bg-gray-200 dark:border-gray-800 dark:bg-gray-800 md:block;
   }
 }
