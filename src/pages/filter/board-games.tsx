@@ -86,6 +86,16 @@ export default function BoardGames(props: GamePageProps) {
     if (isVisible) getMoreGames()
   })
 
+  if (games.length === 0) {
+    return (
+      <div className="flex flex-wrap justify-center gap-5 pt-5 pb-24">
+        <Alert className="w-96 bg-secondary text-center">
+          No active boardgame projects found.
+        </Alert>
+      </div>
+    )
+  }
+
   return (
     <>
       <Header title="Board games" />

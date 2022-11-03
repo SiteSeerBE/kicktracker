@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { MouseEventHandler } from 'react'
-import { BrushFill, HeartFill } from 'react-bootstrap-icons'
+import { BagFill, Boxes, HeartFill } from 'react-bootstrap-icons'
 import SideBarIcon from './side-bar-icon'
 import SvgBookCover from 'svg/book-cover.svg'
 import SvgMeeple from 'svg/meeple.svg'
@@ -34,9 +34,16 @@ const filters = [
     tooltip: 'Role-playing games'
   },
   {
+    id: 'f6',
+    element: 'icon',
+    icon: <Boxes size={34} />,
+    to: '/filter/stl',
+    tooltip: 'STL files'
+  },
+  {
     id: 'f5',
     element: 'icon',
-    icon: <BrushFill size={34} />,
+    icon: <BagFill size={34} />,
     to: '/filter/gaming-accessories',
     tooltip: 'Gaming accessories'
   }

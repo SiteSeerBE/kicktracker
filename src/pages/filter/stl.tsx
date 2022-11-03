@@ -38,7 +38,7 @@ export async function getServerSideProps({ res }: Props) {
   const q = query(
     gamesCol,
     where('live', '==', true),
-    where('tags', 'array-contains', 'other'),
+    where('tags', 'array-contains', 'stl'),
     orderBy('dates.start', 'desc'),
     limit(LIMIT)
   )
@@ -50,7 +50,7 @@ export async function getServerSideProps({ res }: Props) {
   }
 }
 
-export default function GamingAccessories(props: GamePageProps) {
+export default function BoardGames(props: GamePageProps) {
   const [games, setGames] = useState<Game[]>(props.games)
   const [loading, setLoading] = useState<boolean>(false)
   const [gamesEnd, setGamesEnd] = useState<boolean>(false)
@@ -61,7 +61,7 @@ export default function GamingAccessories(props: GamePageProps) {
     const q = query(
       gamesCol,
       where('live', '==', true),
-      where('tags', 'array-contains', 'other'),
+      where('tags', 'array-contains', 'stl'),
       orderBy('dates.start', 'desc'),
       startAfter(cursor),
       limit(LIMIT)
@@ -90,7 +90,7 @@ export default function GamingAccessories(props: GamePageProps) {
     return (
       <div className="flex flex-wrap justify-center gap-5 pt-5 pb-24">
         <Alert className="w-96 bg-secondary text-center">
-          No active accessory projects found.
+          No active STL projects found.
         </Alert>
       </div>
     )
@@ -98,7 +98,7 @@ export default function GamingAccessories(props: GamePageProps) {
 
   return (
     <>
-      <Header title="Gaming accessories" />
+      <Header title="Board games" />
       <div className="flex flex-wrap justify-center gap-5 pt-5 pb-24">
         <GamesList games={games} />
         <div className="flex basis-full flex-col">

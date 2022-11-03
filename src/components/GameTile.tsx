@@ -54,6 +54,9 @@ const GameTile = (props: Props) => {
         {props.game.tags && props.game.tags.includes('other') && (
           <Chip className="m-1" color="blue" value="accessory" />
         )}
+        {props.game.tags && props.game.tags.includes('stl') && (
+          <Chip className="m-1" color="deep-purple" value="STL-file" />
+        )}
         <div className="line-clamp-5">
           <Typography>{props.game.short}</Typography>
         </div>
