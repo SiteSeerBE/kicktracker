@@ -54,8 +54,9 @@ const GameTile = (props: Props) => {
         {props.game.tags && props.game.tags.includes('other') && (
           <Chip className="m-1" color="blue" value="accessory" />
         )}
-
-        <Typography>{props.game.short}</Typography>
+        <div className="line-clamp-5">
+          <Typography>{props.game.short}</Typography>
+        </div>
       </CardBody>
       <CardFooter divider className="flex items-center justify-between py-3">
         <Typography variant="small">

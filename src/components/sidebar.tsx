@@ -60,17 +60,15 @@ const SideBar = (props: Props) => {
                 )}
               </a>
             </Link>
-            <Link href="/admin/tinder" passHref>
+            <Link href="/admin/admin" passHref>
               <a className={menuItemClass}>
                 <SideBarIcon
-                  active={router.route === '/admin/tinder'}
+                  active={router.route === '/admin/admin'}
                   hideTooltip={!props.menuClosed}
                   icon={<LockFill size={34} />}
-                  tooltip="Tinder"
+                  tooltip="Admin"
                 />
-                {!props.menuClosed && (
-                  <span className="menu-label">Tinder</span>
-                )}
+                {!props.menuClosed && <span className="menu-label">Admin</span>}
               </a>
             </Link>
           </>

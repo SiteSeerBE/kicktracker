@@ -5,8 +5,7 @@ export const getGamesForRating = async () => {
   const q = query(
     gamesCol,
     where('live', '==', true),
-    where('tags', 'array-contains', 'none'),
-    limit(30)
+    where('tags', 'array-contains', 'none')
   )
 
   const querySnapshot = await getDocs(q)

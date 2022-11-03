@@ -7,7 +7,7 @@ module.exports = withMT({
   ],
   darkMode: 'class',
   mode: 'jit',
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
   theme: {
     colors: {
       primary: '#F57C00',
