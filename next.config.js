@@ -2,7 +2,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['images.kicktracker.be']
+    domains: ['ik.imagekit.io']
   },
   webpack(config) {
     config.module.rules.push({

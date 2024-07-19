@@ -24,9 +24,9 @@ const GameTile = (props: Props) => {
       <a href={props.game.urls.home} target={`${props.game.platform}`}>
         <CardHeader color="blue-gray" className="relative h-56 dark:opacity-90">
           <Image
-            blurDataURL={`https://images.kicktracker.be/low/${props.game.urls.localImage}`}
+            blurDataURL={`${props.game.urls.localImage}?tr=w-500,bl-10`}
             placeholder="blur"
-            src={`https://images.kicktracker.be/medium/${props.game.urls.localImage}`}
+            src={`${props.game.urls.localImage}`}
             alt="box image"
             layout="fill"
           />
